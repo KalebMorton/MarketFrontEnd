@@ -9,6 +9,9 @@ import ProductList from "./ProductList";
 import Register from "./Register";
 
 export default function Navigations(){
+
+    const [token, setToken] = useState(null)
+
     return (
         <>
             <h2>Navigations</h2>

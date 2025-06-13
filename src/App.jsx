@@ -3,10 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Navigations from './components/Navigations';
 import Dashboard from './components/Dashboard';
+import Register from './components/Register'
+import Login from './components/Login'
+import Account from './components/Account'
+import ProductDetails from './components/ProductDetails'
+import ProductList from './components/ProductList'
+import Home from './components/Home'
+import {Routes, Route} from 'react-router-dom'
+
 
 function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [token, setToken] = useState(null)
   const navigate = useNavigate(); // Enables navigation after login
 
   const handleLogin = async () => {
@@ -52,8 +61,6 @@ function App() {
   }, []);
 
   return (
-
-
     <div>
       <Navigations token={token} setToken={setToken} />
       <Routes>
@@ -70,3 +77,4 @@ function App() {
 }
 
 export default App;
+

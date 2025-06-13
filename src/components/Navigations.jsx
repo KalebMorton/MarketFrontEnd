@@ -7,18 +7,21 @@ export default function Navigations(){
 
     return (
         <>
+        <nav>
             <h2>Navigations</h2>
             <div id="navbar">
-                <Link to="/Account">Account</Link>
+                <Link to="/account">Account</Link>
                 <br></br>
-                <Link to="/Login">Login</Link>
+                <Link to="/login">Login</Link>
                 <br></br>
-                <Link to="/ProductDetails">Product Details</Link>
+                <Link to="/productDetails">Product Details</Link>
                 <br></br>
-                <Link to="/ProductList">Product List</Link>
+                <Link to="/productList">Product List</Link>
                 <br></br>
-                <Link to="/Register">Register</Link>
-            </div>
+                <Link to="/register">Register</Link>
+            </div>    
+        </nav>
+            
         </>
     )
 }

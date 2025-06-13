@@ -8,7 +8,6 @@ export default function Navigations(){
     return (
         <>
         <nav>
-            <h2>Navigations</h2>
             <div id="navbar">
                 <Link to="/">Home</Link>
                 <br></br>

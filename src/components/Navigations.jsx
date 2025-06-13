@@ -10,6 +10,8 @@ export default function Navigations(){
         <nav>
             <h2>Navigations</h2>
             <div id="navbar">
+                <Link to="/">Home</Link>
+                <br></br>
                 <Link to="/account">Account</Link>
                 <br></br>
                 <Link to="/login">Login</Link>

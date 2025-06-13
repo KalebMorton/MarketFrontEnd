@@ -1,6 +1,8 @@
-import { useState } from 'react'
-import './App.css'
-import Navigations from "./components/Navigations"
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+import './App.css';
+import Navigations from './components/Navigations';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -51,6 +53,7 @@ function App() {
 
   return (
 
+
     <div>
       <Navigations token={token} setToken={setToken} />
       <Routes>
@@ -63,6 +66,7 @@ function App() {
       </Routes>
     </div>
   )
+
 }
 
-export default App
+export default App;

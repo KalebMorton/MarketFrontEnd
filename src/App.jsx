@@ -1,22 +1,6 @@
-<<<<<<< HEAD
 import { useState } from 'react'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
-
-import Navigations from './components/Navigations'
-import Home from './components/Home'
-import Account from './components/Account'
-import ProductDetails from './components/ProductDetails'
-import ProductList from './components/ProductList'
-import Login from './components/Login'
-import Register from './components/Register'
-=======
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import './App.css';
-import Navigations from './components/Navigations';
-import Dashboard from './components/Dashboard';
->>>>>>> 0fcc926a8013361f28a01ce00616e44a288608cb
+import Navigations from "./components/Navigations"
 
 function App() {
   const [username, setUsername] = useState('');
@@ -66,7 +50,7 @@ function App() {
   }, []);
 
   return (
-<<<<<<< HEAD
+
     <div>
       <Navigations token={token} setToken={setToken} />
       <Routes>
@@ -78,36 +62,7 @@ function App() {
         <Route path="/register" element={<Register />} />
       </Routes>
     </div>
-=======
-    <>
-      <h1>Frontend</h1>
-      <Navigations />
-
-      <div style={{ marginTop: '1rem' }}>
-        <h2>Login</h2>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <br />
-        <button onClick={handleLogin}>Login</button>
-      </div>
-    </>
->>>>>>> 0fcc926a8013361f28a01ce00616e44a288608cb
-  );
+  )
 }
 
-export default App;
-<<<<<<< HEAD
-
-=======
->>>>>>> 0fcc926a8013361f28a01ce00616e44a288608cb
+export default App

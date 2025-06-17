@@ -2,44 +2,50 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function ProductList({products, setProducts}){
+const navigate = useNavigate()
+const [filter, setFilter] = useState("")
 
-    const [wholeList, setWholeList] = useState(null)
-    const [singleProductId, setSingleProductId] = useState (null)
+ useEffect(()=> {
+    const fetchProducts = async () => {
+        try{
+            const response = await fetch("ADD URL HERE")
+            const result = await response.json()
+            setProducts(result)
+        }catch(error){
 
-    async function getProducts() {
-        try {
-            const response = await fetch("url goes here")
-            const rawData = await response.json()
-
-            setWholeList(rawData.map((item) => {
-                return <div id="listing">
-                    <h3>{item.dataplaceholder1}</h3>
-                    <p>{item.dataplaceholder2}</p>
-                    <p>{item.dataplaceholder3}</p>
-                    <button onClick={handleClick} id={item.placeHolderId}>More Info</button>
-                </div>
-            }))
-        } catch (error) {
-            console.log(`!ERROR! ${error}`)
         }
-        
     }
+    fetchProducts()
+ }, [setProducts])
 
-    function handleClick(event){
-        setSingleProductId(event.tartget.id)
-    }
-
-    useEffect(() => {
-       //getProducts() 
-    },[]);
+    const filteredProducts = products.filter((product) => {
+        return product.title.toLowerCase().includes(filter.toLowerCase())
+    })
 
     return (
         <>
-            <h2>Product List</h2>
-            {
-                //if the singleProductId is null, render wholeList, else render singleProductId
-            }
-            {singleProductId ? <ProductDetails productId={singleProductId} setSingleProductId={setSingleProductId}/> : (wholeList && <>{wholeList}</>)}
+        <div>
+            <input type="text" placeholder="Search for a duck by title" value={filter}
+            onChange={(e) => setFilter(e.target.value)}/>
+        </div>
+        <div>
+            {filteredProducts.length === 0 ? (
+                <p>Loading...</p>
+            ) : (
+                filteredProducts.map((product) => {
+                    return(
+                        <div key={product.id}>
+                            <div>
+                                <img src={product.image}/>
+                                <h2>{product.title}</h2>
+                                <p>{product.price}</p>
+                                <button onClick={() => navigate(`/product/${product.id}`)}>Description</button>
+                            </div>
+                        </div>
+                    )
+                })
+            )}
+        </div>
         </>
     )
 }

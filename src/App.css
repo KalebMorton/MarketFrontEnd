@@ -1,4 +1,5 @@
 :root {
+  --D3EBF7: #d3ebf7;
   --8ECAE6: #8ecae6;
   --219EBC: #219ebc;
   --023047: #023047;
@@ -8,15 +9,26 @@
 
 #navbar {
   display: flex;
-  justify-content: space-between;
-  background-color: var(--8ECAE6);
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: space-evenly;
+  background-color: var(--D3EBF7);
+  width: 100%;
+  padding: 1rem 0;
 }
 
 #navbar a {
   color: var(--219EBC);
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.3s ease;
+  font-family: "Sour Gummy", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#navbar a:hover {
+  color: var(--FB8500);
+  transform: scale3d(1.1, 1.1, 1);
+}
+
+body {
+  margin: 0;
 }

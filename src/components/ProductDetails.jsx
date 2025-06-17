@@ -24,7 +24,7 @@ export default function ProductDetails(passedData) {
 
   return (
     <>
-      <h2>ProductDetails</h2>
+      <h2>Product Details</h2>
       {singleProduct && (
         <div>
           <h3>{singleProduct.dataplaceholder1}</h3>

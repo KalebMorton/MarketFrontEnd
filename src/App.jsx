@@ -67,8 +67,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/account" element={<Account />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
-        <Route path="/productdetails" element={<ProductDetails />} />
-        <Route path="/productlist" element={<ProductList />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </div>

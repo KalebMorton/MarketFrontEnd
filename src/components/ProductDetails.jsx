@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ProductDetails(passedData) {
-  const [singleProduct, setSingleProduct] = useState(null);
+export default function ProductDetails({productDetails, setProductDetails}) {
+  const navigate = useNavigate()
 
   async function getSingleProdct() {
     try {

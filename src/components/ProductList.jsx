@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ProductDetails from "./ProductDetails"
+import { useParams, useNavigate } from "react-router-dom";
 
-export default function ProductList(passedData){
+export default function ProductList({products, setProducts}){
 
     const [wholeList, setWholeList] = useState(null)
     const [singleProductId, setSingleProductId] = useState (null)

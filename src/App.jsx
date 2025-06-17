@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './App.css';
 import Navigations from './components/Navigations';
-import Dashboard from './components/Dashboard';
 import Register from './components/Register'
 import Login from './components/Login'
 import Account from './components/Account'
@@ -13,10 +12,12 @@ import {Routes, Route} from 'react-router-dom'
 
 
 function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [products, setProducts] = useState([])
+  const [productDetails, setProductDetails] = useState([])
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [token, setToken] = useState(null)
-  const navigate = useNavigate(); // Enables navigation after login
+  const navigate = useNavigate()
 
   const handleLogin = async () => {
     try {
@@ -67,8 +68,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/account" element={<Account />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/products" element={<ProductList products={products} setProducts={setProducts}/>} />
+        <Route path="/products/:id" element={<ProductDetails productDetails={productDetails} setProductDetails={setProductDetails}/>} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </div>

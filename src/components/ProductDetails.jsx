@@ -11,7 +11,7 @@ export default function ProductDetails({productDetails, setProductDetails}) {
 useEffect(()=> {
   const fetchProductDetails = async () => {
     try{
-      const response = await fetch ("ADD URL HERE")
+      const response = await fetch (`http://localhost:3000/products/${id}`)
       const result = await response.json()
       setProductDetails(result)
     }catch(error){
@@ -27,7 +27,7 @@ const handleReserve = async () => {
     return navigate("/login")
   }
   try{
-    const response = await fetch("URL HERE", 
+    const response = await fetch("http://localhost:3000/account", 
       {
         method: "POST",
         headers: {

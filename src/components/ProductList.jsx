@@ -8,7 +8,7 @@ const [filter, setFilter] = useState("")
  useEffect(()=> {
     const fetchProducts = async () => {
         try{
-            const response = await fetch("ADD URL HERE")
+            const response = await fetch("http://localhost:3000/products")
             const result = await response.json()
             setProducts(result)
         }catch(error){

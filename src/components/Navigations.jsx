@@ -15,7 +15,7 @@ export default function Navigations(){
                 <br></br>
                 <Link to="/login">Login</Link>
                 <br></br>
-                <Link to="/productDetails">Products</Link>
+                <Link to="/products">Products</Link>
                 <br></br>
                 <Link to="/register">Register</Link>
             </div>    

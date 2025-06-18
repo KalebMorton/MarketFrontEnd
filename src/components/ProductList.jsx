@@ -39,7 +39,7 @@ const [filter, setFilter] = useState("")
                                 <img src={product.image}/>
                                 <h2>{product.title}</h2>
                                 <p>{product.price}</p>
-                                <button onClick={() => navigate(`/product/${product.id}`)}>Description</button>
+                                <button onClick={() => navigate(`/products/${product.id}`)}>Description</button>
                             </div>
                         </div>
                     )

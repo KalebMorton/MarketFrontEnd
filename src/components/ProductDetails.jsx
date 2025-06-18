@@ -52,15 +52,23 @@ const handleReserve = async () => {
     <>
     <div>
       <h1>Product Details</h1>
-      <img src={productDetails.image}/>
-      <h2>{productDetails.title}</h2>
-      <p>Price: {productDetails.price}</p>
-      <p>Description: {productDetails.description}</p>
-      <br></br>
-      <button onClick={handleReserve}>Add to Order</button>
-      <br></br>
-      <br></br>
-      <button onClick={() => navigate("/products")}>Back to Ducks</button>
+      {productDetails ? (
+      <>
+        <div>
+          <img src={productDetails.image}/>
+          <h2>{productDetails.title}</h2>
+          <p>Price: {productDetails.price}</p>
+          <p>Description: {productDetails.description}</p>
+          <br></br>
+          <button onClick={handleReserve}>Add to Order</button>
+          <br></br>
+          <br></br>
+          <button onClick={() => navigate("/products")}>Back to Ducks</button>
+        </div>  
+        </>
+      ) : (
+        <p>Loading Details...</p>
+      )}
     </div>
     </>
   )

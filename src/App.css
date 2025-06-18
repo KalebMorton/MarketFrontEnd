@@ -32,3 +32,47 @@
 body {
   margin: 0;
 }
+
+/* animated duck banner */
+
+.duck-banner {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--D3EBF7), var(--8ECAE6));
+  overflow: hidden;
+  z-index: 1;
+  border-bottom: 2px solid var(--219EBC);
+}
+
+/* Wrapper holds position + animation */
+.duck-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 100vw; /* Start just offscreen to the right */
+  animation: floatDuck 20s linear infinite;
+}
+
+/* Duck image: flipped to face left */
+.duck-img {
+  height: 60px;
+  transform: scaleX(1);
+}
+
+/* Stagger the ducks */
+.duck1 {
+  animation-delay: 0s;
+}
+.duck2 {
+  animation-delay: 8s;
+}
+.duck3 {
+  animation-delay: 16s;
+}
+
+@keyframes floatDuck {
+  0%   { transform: translateX(0) translateY(20); }
+  25%  { transform: translateX(-25vw) translateY(-15px); }
+  50%  { transform: translateX(-55vw) translateY(10); }
+  75%  { transform: translateX(-80vw) translateY(-25px); }
+  100% { transform: translateX(-120vw) translateY(0); }
+}

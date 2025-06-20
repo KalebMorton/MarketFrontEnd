@@ -37,11 +37,11 @@ body {
 
 .duck-banner {
   position: relative;
-  height: 120px;
-  background: linear-gradient(to bottom, var(--D3EBF7), var(--8ECAE6));
+  height: 100px;
+  background: var(--D3EBF7);
   overflow: hidden;
   z-index: 1;
-  border-bottom: 2px solid var(--219EBC);
+  padding-bottom: 20px;
 }
 
 .duck-wrapper {
@@ -82,4 +82,83 @@ body {
   100% {
     transform: translateX(-120vw) translateY(0);
   }
+}
+
+.home {
+  background-color: var(--D3EBF7);
+}
+
+.home h2 {
+  font-family: "Chicle", serif;
+  font-weight: 400;
+  font-size: 12rem;
+  text-align: center;
+  color: var(--FB8500);
+  text-shadow: var(--219EBC) 2px 2px 0;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.home p {
+  font-family: "Quicksand", serif;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--219EBC);
+  margin: 0;
+  padding: 0.3rem;
+}
+
+button {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--FFB703);
+  color: var(--023047);
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--D3EBF7);
+  padding: 3rem;
+}
+
+/* General styles for all pages */
+
+body {
+  background-color: var(--D3EBF7);
+}
+
+
+/* Duck card */
+
+.duck-card {
+  background-color: var(--D3EBF7);
+  border: solid 2px var(--219EBC);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.duck-card h2 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+}
+
+.duck-card p {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.duck-card img {
+  height: 200px;
+  width: auto;
+  border-radius: 10px;
 }

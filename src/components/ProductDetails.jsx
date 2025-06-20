@@ -49,7 +49,7 @@ const handleReserve = async () => {
 }
 
   return (
-    <>
+    <div className='container'>
     <div>
       <h1>Product Details</h1>
       {productDetails ? (
@@ -57,8 +57,8 @@ const handleReserve = async () => {
         <div>
           <img src={productDetails.image}/>
           <h2>{productDetails.title}</h2>
-          <p>Price: {productDetails.price}</p>
-          <p>Description: {productDetails.description}</p>
+          <p>Price: ${productDetails.price}</p>
+          <p>{productDetails.description}</p>
           <br></br>
           <button onClick={handleReserve}>Add to Order</button>
           <br></br>
@@ -70,6 +70,6 @@ const handleReserve = async () => {
         <p>Loading Details...</p>
       )}
     </div>
-    </>
+    </div>
   )
 }

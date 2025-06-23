@@ -35,8 +35,21 @@ async function handleSubmit(e){
 
   return (
     <div className='container'>
-      <h2>Login</h2>
-      <p>Please sign in below</p>
+      <h2>Login to Your Account</h2>
+      <h2>Please sign in below</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email: <input value={email || ""} onChange={(e) => setEmail(e.target.value)}/>
+        </label>
+        <br></br>
+        <br></br>
+        <label>
+          Password: <input value={password || ""} onChange={(e) => setPassword(e.target.value)}/>
+        </label>
+        <br></br>
+        <br></br>
+        <button type = "submit">Login</button>
+      </form>
     </div>
-  );
+  )
 }

@@ -15,6 +15,7 @@ function App() {
   const [products, setProducts] = useState([])
   const [productDetails, setProductDetails] = useState([])
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [token, setToken] = useState(null)
   const navigate = useNavigate()
@@ -67,7 +68,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
+        <Route path="/login" element={<Login token={token} setToken={setToken} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
         <Route path="/products" element={<ProductList products={products} setProducts={setProducts}/>} />
         <Route path="/products/:id" element={<ProductDetails productDetails={productDetails} setProductDetails={setProductDetails}/>} />
         <Route path="/register" element={<Register />} />

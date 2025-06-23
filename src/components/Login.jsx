@@ -6,6 +6,33 @@ export default function Login({email, setEmail, password, setPassword, token, se
   const [success, setSuccess] = useState(null)
   const navigate= useNavigate()
   
+async function handleSubmit(e){
+  e.preventDefault()
+  try{
+    const response = await fetch("http://localhost:3000/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      }
+    )
+    const result = await response.json()
+    setToken(result.token)
+    localStorage.setItem("token", result.token)
+    setEmail(result.email)
+    localStorage.setItem("email", email)
+    setSuccess("Successfully logged in! Con-quack-ulations!")
+    navigate("/products")
+  }catch(error){
+    setError("Unable to Login. Try again!")
+  }
+}
+
   return (
     <div className='container'>
       <h2>Login</h2>

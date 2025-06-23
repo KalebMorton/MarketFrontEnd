@@ -23,7 +23,7 @@ const [filter, setFilter] = useState("")
     })
 
     return (
-        <>
+        <div className='container'>
         <div>
             <input type="text" placeholder="Search for a duck by title" value={filter}
             onChange={(e) => setFilter(e.target.value)}/>
@@ -35,10 +35,10 @@ const [filter, setFilter] = useState("")
                 filteredProducts.map((product) => {
                     return(
                         <div key={product.id}>
-                            <div>
+                            <div className='duck-card'>
                                 <img src={product.image}/>
                                 <h2>{product.title}</h2>
-                                <p>{product.price}</p>
+                                <p>${product.price}</p>
                                 <button onClick={() => navigate(`/products/${product.id}`)}>Description</button>
                             </div>
                         </div>
@@ -46,6 +46,6 @@ const [filter, setFilter] = useState("")
                 })
             )}
         </div>
-        </>
+        </div>
     )
 }

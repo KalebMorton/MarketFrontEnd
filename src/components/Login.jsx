@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function Login({email, setEmail, password, setPassword, token, setToken}) {
+export default function Login({username, setUsername, password, setPassword, token, setToken}) {
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
   const navigate= useNavigate()
@@ -16,7 +16,7 @@ async function handleSubmit(e){
           "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-          email,
+          username,
           password
         })
       }
@@ -24,8 +24,8 @@ async function handleSubmit(e){
     const result = await response.json()
     setToken(result.token)
     localStorage.setItem("token", result.token)
-    setEmail(result.email)
-    localStorage.setItem("email", email)
+    setUsername(result.username)
+    localStorage.setItem("username", username)
     setSuccess("Successfully logged in! Con-quack-ulations!")
     navigate("/products")
   }catch(error){
@@ -39,7 +39,7 @@ async function handleSubmit(e){
       <h2>Please sign in below</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Email: <input value={email || ""} onChange={(e) => setEmail(e.target.value)}/>
+          Username: <input value={username || ""} onChange={(e) => setUsername(e.target.value)}/>
         </label>
         <br></br>
         <br></br>

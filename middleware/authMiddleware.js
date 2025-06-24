@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = 'secret_key'; 
+const JWT_SECRET = 'PinkRain0624'; 
 
 export function verifyToken(req, res, next) {
   const authHeader = req.headers.authorization;

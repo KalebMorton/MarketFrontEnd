@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import pool from '../db.js'; 
 
 const router = express.Router();
-const JWT_SECRET = 'secret_key_here_backend'; 
+const JWT_SECRET = 'PinkRain0624'; 
 
 
 router.post('/register', async (req, res) => {

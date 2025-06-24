@@ -1,9 +1,12 @@
-// all the routes will be tied to here
+
 import { Link } from "react-router-dom";
 
 
-export default function Navigations(){
-
+export default function Navigations({token, setToken}){
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        setToken(null)
+    }
 
     return (
         <>
@@ -11,13 +14,16 @@ export default function Navigations(){
             <div id="navbar">
                 <Link to="/">Home</Link>
                 <br></br>
-                <Link to="/account">Account</Link>
-                <br></br>
-                <Link to="/login">Login</Link>
-                <br></br>
                 <Link to="/products">Ducks</Link>
                 <br></br>
                 <Link to="/register">Register</Link>
+                <br></br>
+                {token ? (
+                    <button onClick={handleLogout}>Logout</button>
+                ) : (
+                  <Link to="/login">Login</Link>  
+                )}
+                {token &&  <Link to="/account">Account</Link>}
             </div>    
         </nav>
             

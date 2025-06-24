@@ -2,12 +2,23 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './App.css';
 import Navigations from './components/Navigations';
-import Dashboard from './components/Dashboard';
+import Register from './components/Register'
+import Login from './components/Login'
+import Account from './components/Account'
+import ProductDetails from './components/ProductDetails'
+import ProductList from './components/ProductList'
+import Home from './components/Home'
+import {Routes, Route} from 'react-router-dom'
+
 
 function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Enables navigation after login
+  const [products, setProducts] = useState([])
+  const [productDetails, setProductDetails] = useState([])
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [token, setToken] = useState(null)
+  const navigate = useNavigate()
 
   const handleLogin = async () => {
     try {
@@ -52,30 +63,20 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>Frontend</h1>
-      <Navigations />
+    <div>
+      <Navigations token={token} setToken={setToken} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/login" element={<Login token={token} setToken={setToken} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
+        <Route path="/products" element={<ProductList products={products} setProducts={setProducts}/>} />
+        <Route path="/products/:id" element={<ProductDetails productDetails={productDetails} setProductDetails={setProductDetails}/>} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </div>
+  )
 
-      <div style={{ marginTop: '1rem' }}>
-        <h2>Login</h2>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <br />
-        <button onClick={handleLogin}>Login</button>
-      </div>
-    </>
-  );
 }
 
 export default App;
+

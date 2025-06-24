@@ -1,74 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-  <title>Login/Register</title>
-</head>
-<body>
-  <div id="root"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/rubber-duck.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chicle&family=Quicksand:wght@300..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Ducks</title>
+  </head>
+  <body>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  <h1>Register</h1>
-  <input id="reg-username" placeholder="Username" />
-  <input id="reg-password" type="password" placeholder="Password" />
-  <button onclick="register()">Register</button>
-
-  <h1>Login</h1>
-  <input id="log-username" placeholder="Username" />
-  <input id="log-password" type="password" placeholder="Password" />
-  <label><input type="checkbox" id="remember-me" /> Remember Me</label>
-  <button onclick="login()">Login</button>
-
-  <h1>User Info</h1>
-  <button onclick="getUser()">Check /me</button>
-
-  <h1>Logout</h1>
-  <button onclick="logout()">Logout</button>
-
-  <script>
-    async function register() {
-      const username = document.getElementById('reg-username').value;
-      const password = document.getElementById('reg-password').value;
-
-      const res = await fetch('/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
-      const data = await res.json();
-      console.log(data);
-    }
-
-    async function login() {
-      const username = document.getElementById('log-username').value;
-      const password = document.getElementById('log-password').value;
-      const remember = document.getElementById('remember-me').checked;
-
-      const res = await fetch('/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password, remember })
-      });
-      const data = await res.json();
-      localStorage.setItem('token', data.token);
-      console.log(data);
-    }
-
-    async function getUser() {
-      const token = localStorage.getItem('token');
-
-      const res = await fetch('/auth/me', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      const data = await res.json();
-      console.log(data);
-    }
-
-    async function logout() {
-      await fetch('/auth/logout', { method: 'POST' });
-      localStorage.removeItem('token');
-      console.log('Logged out');
-    }
-  </script>
-</body>
+  </body>
 </html>

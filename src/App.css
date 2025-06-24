@@ -1,42 +1,164 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --D3EBF7: #d3ebf7;
+  --8ECAE6: #8ecae6;
+  --219EBC: #219ebc;
+  --023047: #023047;
+  --FFB703: #ffb703;
+  --FB8500: #fb8500;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--D3EBF7);
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#navbar a {
+  color: var(--219EBC);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: "Sour Gummy", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#navbar a:hover {
+  color: var(--FB8500);
+  transform: scale3d(1.1, 1.1, 1);
+}
+
+body {
+  margin: 0;
+}
+
+/* animated duck banner */
+
+.duck-banner {
+  position: relative;
+  height: 100px;
+  background: var(--D3EBF7);
+  overflow: hidden;
+  z-index: 1;
+  padding-bottom: 20px;
+}
+
+.duck-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 100vw;
+  animation: floatDuck 20s linear infinite;
+}
+
+.duck-img {
+  height: 60px;
+  transform: scaleX(1);
+}
+
+.duck1 {
+  animation-delay: 0s;
+}
+.duck2 {
+  animation-delay: 8s;
+}
+.duck3 {
+  animation-delay: 16s;
+}
+
+@keyframes floatDuck {
+  0% {
+    transform: translateX(0) translateY(20);
+  }
+  25% {
+    transform: translateX(-25vw) translateY(-15px);
+  }
+  50% {
+    transform: translateX(-55vw) translateY(10);
+  }
+  75% {
+    transform: translateX(-80vw) translateY(-25px);
+  }
+  100% {
+    transform: translateX(-120vw) translateY(0);
+  }
+}
+
+.home {
+  background-color: var(--D3EBF7);
+}
+
+.home h2 {
+  font-family: "Chicle", serif;
+  font-weight: 400;
+  font-size: 12rem;
   text-align: center;
+  color: var(--FB8500);
+  text-shadow: var(--219EBC) 2px 2px 0;
+  margin-top: 0;
+  margin-bottom: 3rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.home p {
+  font-family: "Quicksand", serif;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--219EBC);
+  margin: 0;
+  padding: 0.3rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--FFB703);
+  color: var(--023047);
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--D3EBF7);
+  padding: 3rem;
 }
 
-.card {
-  padding: 2em;
+/* General styles for all pages */
+
+body {
+  background-color: var(--D3EBF7);
 }
 
-.read-the-docs {
-  color: #888;
+
+/* Duck card */
+
+.duck-card {
+  background-color: var(--D3EBF7);
+  border: solid 2px var(--219EBC);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.duck-card h2 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+}
+
+.duck-card p {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.duck-card img {
+  height: 200px;
+  width: auto;
+  border-radius: 10px;
 }

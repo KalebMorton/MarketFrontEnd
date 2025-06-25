@@ -24,7 +24,7 @@ export default function Register() {
     setValidateMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch("http://localhost:3000/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,13 +35,14 @@ export default function Register() {
         }),
       });
 
-      const errData = await response.json();
+      const data = await response.json();
 
       if (!response.ok) {
-        setError(errData.error || "Registration failed. Please try again.");
+        setError(data.error || "Registration failed. Please try again.")
+        return;
       }
-      const { token } = await response.json();
-      localStorage.setItem("token", token);
+      if(data.token){
+      localStorage.setItem("token", data.token)};
       navigate("/login");
     } catch (error) {
       setError("An error occurred during registration. Please try again.");

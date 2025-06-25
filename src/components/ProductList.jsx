@@ -23,12 +23,12 @@ const [filter, setFilter] = useState("")
     })
 
     return (
-        <div className='container'>
         <div>
+        <div className='search-bar'>
             <input type="text" placeholder="Search for a duck by title" value={filter}
             onChange={(e) => setFilter(e.target.value)}/>
         </div>
-        <div>
+        <div className='duck-container'> 
             {filteredProducts.length === 0 ? (
                 <p>Loading...</p>
             ) : (
@@ -39,7 +39,7 @@ const [filter, setFilter] = useState("")
                                 <img src={product.image}/>
                                 <h2>{product.title}</h2>
                                 <p>${product.price}</p>
-                                <button onClick={() => navigate(`/products/${product.id}`)}>Description</button>
+                                <button onClick={() => navigate(`/products/${product.id}`)}>View Ducky</button>
                             </div>
                         </div>
                     )

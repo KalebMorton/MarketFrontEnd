@@ -93,13 +93,13 @@ useEffect(()=> {
 
 
   return (
-    <div className='container'>
+    <div className='ducky-container'>
     <div>
-      <h1>Product Details</h1>
+      <h2>Ducky Details</h2>
       {error && <p>{error}</p>}
       {productDetails ? (
       <>
-        <div>
+        <div className='ducky-details'>
           <img src={productDetails.image}/>
           <h2>{productDetails.title}</h2>
           <p>Price: ${productDetails.price}</p>
@@ -110,7 +110,7 @@ useEffect(()=> {
           <br></br>
           <button onClick={() => navigate("/products")}>Back to Ducks</button>
         </div>  
-        <div>
+        <div className='reviews'>
           <h3>Reviews</h3>
           {reviews.length > 0 ? (
             <ul>

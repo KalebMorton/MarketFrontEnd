@@ -34,8 +34,7 @@ async function handleSubmit(e){
 }
 
   return (
-    <div className='container'>
-      <h2>Login to Your Account</h2>
+    <div className='login-container'>
       <h2>Please sign in below</h2>
       <form onSubmit={handleSubmit}>
         <label>

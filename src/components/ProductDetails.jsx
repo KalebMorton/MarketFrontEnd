@@ -6,6 +6,7 @@ export default function ProductDetails({productDetails, setProductDetails}) {
   const navigate = useNavigate()
   const [error, setError] = useState(null)
   const [order, setOrder] = useState([])
+  const [reviews, setReviews] = useState([])
   const token = localStorage.getItem("token")
 
 useEffect(()=> {
@@ -14,12 +15,20 @@ useEffect(()=> {
       const response = await fetch (`http://localhost:3000/products/${id}`)
       const result = await response.json()
       setProductDetails(result)
+
+      const reviewsResponse = await fetch(`http://localhost:3000/products/${id}/reviews`)
+      if(!reviewsResponse.ok){
+        throw new Error("Reviews not found!")
+      }
+      const reviewsResult = await reviewsResponse.json()
+      setReviews(reviewsResult)
     }catch(error){
-      setError("Unable to find details")
+      setError("Unable to find details or reviews")
     }
   }
   fetchProductDetails()
 }, [id])
+
 
 const handleReserve = async () => {
   if(!token){
@@ -52,6 +61,7 @@ const handleReserve = async () => {
     <div className='container'>
     <div>
       <h1>Product Details</h1>
+      {error && <p>{error}</p>}
       {productDetails ? (
       <>
         <div>
@@ -65,6 +75,20 @@ const handleReserve = async () => {
           <br></br>
           <button onClick={() => navigate("/products")}>Back to Ducks</button>
         </div>  
+        <div>
+          <h3>Reviews</h3>
+          {reviews.length > 0 ? (
+            <ul>
+              {reviews.map ((review) => (
+                <li key={review.id}> <strong>{review.user || "Anonymous"}</strong>: {review.comment}</li>
+               
+
+              ))}
+            </ul>
+          ) : (
+            <p>No reviews yet for this product</p>
+          )}
+        </div>
         </>
       ) : (
         <p>Loading Details...</p>

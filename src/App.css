@@ -142,6 +142,7 @@ body {
   border: solid 2px var(--219EBC);
   border-radius: 10px;
   padding: 1rem;
+  margin: 0.5rem 2rem 0 2rem;
 }
 
 .duck-card h2 {
@@ -161,4 +162,170 @@ body {
   height: 200px;
   width: auto;
   border-radius: 10px;
+}
+
+.duck-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  border: 2px solid var(--219EBC);
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Quicksand", sans-serif;
+  margin-left: 2rem;
+  background-color: var(--FFB703);
+}
+
+/* Ducky details page */
+
+.ducky-details {
+  padding: 2rem;
+}
+
+.ducky-details img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.ducky-details p {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--219EBC);
+  margin-left: 2rem;
+}
+
+.ducky-container h2 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+  margin-left: 2rem;
+}
+
+.ducky-container p {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--219EBC);
+  margin-left: 2rem;
+}
+
+.ducky-details h2 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+}
+
+.ducky-details button {
+  margin-left: 2rem;
+}
+
+.reviews {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  padding: 1rem;
+  background-color: var(--D3EBF7);
+  border-radius: 10px;
+}
+
+.reviews h3 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+  margin-left: 2rem;
+}
+
+.reviews p {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--219EBC);
+  margin-left: 2rem;
+}
+
+/* Register page */
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--8ECAE6);
+  padding: 2rem;
+  border-radius: 10px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+}
+
+.register-container input {
+  padding: 0.5rem;
+  border: 2px solid var(--219EBC);
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.register-container button {
+  background-color: var(--FFB703)
+}
+
+/* Login page */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--8ECAE6);
+  padding: 2rem;
+  border-radius: 10px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+}
+
+.login-container h2 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+  margin-bottom: 1rem;
+}
+
+.login-container input {
+  padding: 0.5rem;
+  border: 2px solid var(--219EBC);
+  border-radius: 5px;
+  margin-left: 0.5rem;
+}
+
+.login-container button {
+  background-color: var(--FFB703)
 }

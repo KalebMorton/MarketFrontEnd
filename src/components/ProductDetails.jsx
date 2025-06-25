@@ -30,33 +30,30 @@ useEffect(()=> {
 }, [id])
 
 
-const handleReserve = async () => {
-  if(!token){
-    alert("You must be logged in to see orders and reviews")
-    return navigate("/login")
-  }
-  try{
-    const response = await fetch("http://localhost:3000/account", 
-      {
+  const handleReserve = async () => {
+    if (!token) {
+      alert("You must be logged in to see orders and reviews");
+      return navigate("/login");
+    }
+    try {
+      const response = await fetch("http://localhost:3000/account", {
         method: "POST",
         headers: {
-          "Content-Type" : "application/json",
-          Authorization : `Bearer ${token}`
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           productId: productDetails.id,
-        })
-      }
-    )
-    const result = await response.json()
-    setOrder(result)
-    alert("Added to your order!")
-    navigate("/account")
-  }catch(error){
-    setError("Unable to add to order")
-  }
-}
-
+        }),
+      });
+      const result = await response.json();
+      setOrder(result);
+      alert("Added to your order!");
+      navigate("/account");
+    } catch (error) {
+      setError("Unable to add to order");
+    }
+  };
   return (
     <div className='container'>
     <div>
@@ -95,5 +92,5 @@ const handleReserve = async () => {
       )}
     </div>
     </div>
-  )
+  );
 }

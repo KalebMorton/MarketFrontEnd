@@ -1,6 +1,7 @@
-
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className='container'>
     <div className='duck-banner'>
@@ -20,8 +21,8 @@ export default function Home() {
       <p>Your One-Stop Duck for Talking Out Code</p>
       </div>
       <div className='buttons'>
-      <button className='register-btn'>Register</button>
-      <button className='login-btn'>Login</button>
+      <button onClick={() => navigate("/register")} className='register-btn'>Register</button>
+      <button onClick={() => navigate("/login")} className='login-btn'>Login</button>
       </div>
     </div>
   );

@@ -66,7 +66,7 @@ function App() {
       <Navigations token={token} setToken={setToken} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/account" element={<Account token={token}/>} />
         <Route path="/login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>} />
         <Route path="/products" element={<ProductList products={products} setProducts={setProducts}/>} />
         <Route path="/products/:id" element={<ProductDetails productDetails={productDetails} setProductDetails={setProductDetails}/>} />

@@ -26,6 +26,22 @@ const Account = ({token}) => {
     fetchAccount()}
   }, [token])
 
+  const handleRemoveDuck = async (orderId) => {
+    try{
+      const token = localStorage.getItem("token")
+      const response = await fetch ("http://localhost:3000/orders",
+        {
+          method: "DELETE",
+          headers: {
+            Authorization : `Bearer ${token}`
+          }
+        }
+      )
+    }catch(error){
+      setError("Unable to remove duck")
+    }
+  }
+
   return (
     <div className="account-container">
       <h2>Welcome back, {user.username}!</h2>
@@ -33,7 +49,6 @@ const Account = ({token}) => {
         <p><strong>Username:</strong> {user.username}</p>
         <p><strong>Email:</strong> {user.email || 'Not provided'}</p>
       </div>
-      <button onClick={handleLogout}>Log Out</button>
     </div>
   );
 };

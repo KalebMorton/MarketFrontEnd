@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const Account = ({ token }) => {
   const [account, setAccount] = useState(null);
   const [error, setError] = useState(null);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const fetchAccount = async () => {
       try {
+        console.log("Fetching account with token:", token);
         const response = await fetch("http://localhost:3000/users/me", {
           method: "GET",
           headers: {
@@ -14,40 +16,52 @@ const Account = ({ token }) => {
             Authorization: `Bearer ${token}`,
           },
         });
-        const result = await response.json()
-        setAccount(result);
-      } catch (error) {
-        setError("Unable to find account")
-      }
-    }
-    if (token) {
-      fetchAccount()
-    }
-  }, [token])
 
-  if(!account){
-    return <p>Loading your account...</p>
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Error fetching account:", errorText);
+          setError("Unable to fetch account");
+          return;
+        }
+        const result = await response.json();
+        setAccount(result);
+        setOrders(result.orders || []);
+      } catch (error) {
+        console.error("Error fetching account", error)
+        setError("Unable to find account");
+      }
+    };
+
+    if (token) {
+      fetchAccount();
+    }
+  }, [token]);
+
+  if (!account) {
+    return <p>Loading your account...</p>;
   }
 
   const handleRemoveDuck = async (orderId) => {
     try {
-      const token = localStorage.getItem("token")
+      const token = localStorage.getItem("token");
       await fetch(`http://localhost:3000/orders/${orderId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
+      });
     } catch (error) {
-      setError("Unable to remove duck")
+      setError("Unable to remove duck");
     }
-  }
+  };
 
   return (
     <div className="account-container">
       <h2>Welcome back, {account?.user?.username}!</h2>
       <div className="account-info">
-        <p><strong>Username:</strong> {user.username}</p>
+        <p>
+          <strong>Username:</strong> {account.user.username}
+        </p>
       </div>
       <div className="orders">
         <h3>Your Orders</h3>
@@ -57,9 +71,18 @@ const Account = ({ token }) => {
           <ul>
             {orders.map((order) => (
               <li key={order.id}>
-                <p><strong>Order ID: </strong>{order.id}</p>
-                <p><strong>Date: </strong>{order.date}</p>
-                <p><strong>Items: </strong>{order.note}</p>
+                <p>
+                  <strong>Order ID: </strong>
+                  {order.id}
+                </p>
+                <p>
+                  <strong>Date: </strong>
+                  {order.date}
+                </p>
+                <p>
+                  <strong>Items: </strong>
+                  {order.note}
+                </p>
               </li>
             ))}
           </ul>

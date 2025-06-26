@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     if(token) {
-      localStorage.getItem("token", token)
+      localStorage.setItem("token", token)
     }else{
       localStorage.removeItem("token")
     }
@@ -29,11 +29,11 @@ function App() {
   
     useEffect(() => {
       if(username) {
-        localStorage.getItem("username", JSON.stringify(username))
+        localStorage.setItem("username", JSON.stringify(username))
       }else{
         localStorage.removeItem("username")
       }
-    }, [username])
+    }, [username]);
     
   useEffect(() => {
     const storedReserved = localStorage.getItem("reserved")
@@ -42,14 +42,21 @@ function App() {
     }else{
       localStorage.removeItem("reserved")
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token")
+    if (storedToken) {
+      setToken(storedToken)
+    }
+  }, []);
 
   return (
     <div>
       <Navigations token={token} setToken={setToken} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/account" element={<Account token={token}/>} />
+        <Route path="/account" element={token ? <Account token={token}/> : <p>Loading token...</p>} />
         <Route path="/login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>} />
         <Route path="/products" element={<ProductList products={products} setProducts={setProducts}/>} />
         <Route path="/products/:id" element={<ProductDetails productDetails={productDetails} setProductDetails={setProductDetails}/>} />

@@ -1,15 +1,5 @@
-# React + Vite
+frontend
+Welcome to Dev Ducks! The fabulous site where you can purchase a duck to talk your code through with you? Tired of people thinking your insane for talking to yourself? Then no worries, because here you can find a variety of ducks to talk to that can fit your personality! 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-
-Testing Branches
+Attached below is our we were able to create this amazing site as a team by using Trello to assign tasks:
+https://trello.com/b/0dZEJEas/block-40

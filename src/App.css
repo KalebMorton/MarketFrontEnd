@@ -20,7 +20,7 @@
   text-decoration: none;
   transition: color 0.3s ease;
   font-family: "Sour Gummy", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 500;
 }
 
@@ -328,4 +328,29 @@ body {
 
 .login-container button {
   background-color: var(--FFB703)
+}
+
+/* Account page */
+
+.account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.account-container h2 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+  margin-bottom: 1rem;
+}
+
+.account-container p {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--219EBC);
+  margin-bottom: 1rem;
 }

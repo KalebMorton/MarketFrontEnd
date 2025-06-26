@@ -83,6 +83,7 @@ const Account = ({ token }) => {
                   <strong>Items: </strong>
                   {order.note}
                 </p>
+                <button onClick={() => handleRemoveDuck(order.id)}>Remove Duck</button>
               </li>
             ))}
           </ul>

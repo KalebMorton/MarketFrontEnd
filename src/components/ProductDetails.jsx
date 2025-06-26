@@ -45,8 +45,8 @@ useEffect(()=> {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          date: new Date().toISOString(),
-          productId: productDetails.id,
+          date: new Date().toISOString().split('T')[0],
+          note: "Ordering this duck!",
         }),
       })
       const result = await response.json()

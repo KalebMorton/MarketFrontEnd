@@ -43,7 +43,7 @@ async function handleSubmit(e){
         <br></br>
         <br></br>
         <label>
-          Password: <input value={password || ""} onChange={(e) => setPassword(e.target.value)}/>
+          Password: <input type='password' value={password || ""} onChange={(e) => setPassword(e.target.value)}/>
         </label>
         <br></br>
         <br></br>

@@ -16,8 +16,15 @@ function App() {
   const [productDetails, setProductDetails] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState(localStorage.getItem("token"))
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token")
+    if(storedToken){
+      setToken(storedToken)
+    }
+  }, [])
 
   useEffect(() => {
     if(token) {
@@ -60,7 +67,7 @@ function App() {
         <Route path="/login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>} />
         <Route path="/products" element={<ProductList products={products} setProducts={setProducts}/>} />
         <Route path="/products/:id" element={<ProductDetails productDetails={productDetails} setProductDetails={setProductDetails}/>} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register token={token} setToken={setToken}/>} />
       </Routes>
     </div>
   )

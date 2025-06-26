@@ -15,8 +15,8 @@ export default function Login({username, setUsername, password, setPassword, tok
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          username,
-          password
+          username: username,
+          password: password
         })
       })
   

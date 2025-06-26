@@ -174,7 +174,7 @@ body {
 .search-bar {
   width: 100%;
   max-width: 300px;
-  padding: 0.5rem;
+  padding: 0.25rem;
   border: 2px solid var(--219EBC);
   font-size: 1rem;
   border-radius: 5px;
@@ -182,6 +182,15 @@ body {
   font-family: "Quicksand", sans-serif;
   margin-left: 2rem;
   background-color: var(--FFB703);
+}
+
+.search-bar input {
+  width: 90%;
+  height: 1rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-family: "Quicksand", sans-serif;
+  border: none;
 }
 
 /* Ducky details page */
@@ -234,11 +243,17 @@ body {
 }
 
 .reviews {
-  margin-top: 2rem;
+  width: 80%;
+  min-width: 600px;
+  margin-top: 1rem;
   margin-left: 2rem;
-  padding: 1rem;
-  background-color: var(--D3EBF7);
+  padding: 0.25rem 0 1rem;
+  background-color: var(--219EBC);
   border-radius: 10px;
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--023047);
 }
 
 .reviews h3 {
@@ -249,12 +264,52 @@ body {
   margin-left: 2rem;
 }
 
-.reviews p {
+.review-form {
+  width: 80%;
+  min-width: 600px;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  padding: 0.25rem 0 1rem;
+  background-color: var(--8ECAE6);
+  border-radius: 10px;
+}
+
+.review-form .form-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.review-form input,textarea {
+  padding: 5px;
+  border: 2px solid var(--219EBC);
+  border-radius: 5px;
+  font-family: "Quicksand", serif;
+  font-size: 1rem;
+}
+
+.review-form label {
   font-family: "Quicksand", serif;
   font-weight: 500;
   font-size: 1.2rem;
-  color: var(--219EBC);
+  color: var(--023047);
+  padding: 0 0.5rem;
   margin-left: 2rem;
+}
+
+.review-form h3 {
+  font-family: "Chicle", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: var(--023047);
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.review-form button {
+  margin-left: 2rem;
+  background-color: var(--FFB703);
 }
 
 /* Register page */

@@ -46,7 +46,7 @@ useEffect(()=> {
         },
         body: JSON.stringify({
           date: new Date().toISOString().split('T')[0],
-          note: "Ordering this duck!",
+          note: `${productDetails.description}`,
         }),
       })
       const result = await response.json()

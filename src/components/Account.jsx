@@ -25,6 +25,10 @@ const Account = ({ token }) => {
     }
   }, [token])
 
+  if(!account){
+    return <p>Loading your account...</p>
+  }
+
   const handleRemoveDuck = async (orderId) => {
     try {
       const token = localStorage.getItem("token")
@@ -41,7 +45,7 @@ const Account = ({ token }) => {
 
   return (
     <div className="account-container">
-      <h2>Welcome back, {user.username}!</h2>
+      <h2>Welcome back, {account?.user?.username}!</h2>
       <div className="account-info">
         <p><strong>Username:</strong> {user.username}</p>
       </div>

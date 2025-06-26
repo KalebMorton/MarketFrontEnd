@@ -38,13 +38,14 @@ useEffect(()=> {
       return navigate("/login");
     }
     try {
-      const response = await fetch("http://localhost:3000/account", {
+      const response = await fetch("http://localhost:3000/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
+          date: new Date().toISOString(),
           productId: productDetails.id,
         }),
       })

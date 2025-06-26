@@ -116,7 +116,7 @@ useEffect(()=> {
           {reviews.length > 0 ? (
             <ul>
               {reviews.map ((review) => (
-                <li key={review.id}> <strong>{review.user || "Anonymous"}</strong>: {review.comment}</li>
+                <li key={review.id}> <strong>Anonymous</strong>: {review.comment}</li>
                
 
               ))}

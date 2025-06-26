@@ -38,14 +38,13 @@ useEffect(()=> {
       return navigate("/login");
     }
     try {
-      const response = await fetch("http://localhost:3000/orders", {
+      const response = await fetch("http://localhost:3000/account", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          date: new Date().toISOString(),
           productId: productDetails.id,
         }),
       })
@@ -64,6 +63,7 @@ useEffect(()=> {
       alert("You must be logged in to leave a review")
       return navigate("/login")
     }
+  }
 
   try {
     const response = await fetch(`http://localhost:3000/products/${id}/reviews`, {
@@ -90,17 +90,17 @@ useEffect(()=> {
     alert("Review submitted!")
   }catch(error){
     setError(error.message || "Error submitting review")
-  }}
+  }
 
 
   return (
-    <div className='ducky-container'>
+    <div className='container'>
     <div>
-      <h2>Ducky Details</h2>
+      <h1>Product Details</h1>
       {error && <p>{error}</p>}
       {productDetails ? (
       <>
-        <div className='ducky-details'>
+        <div>
           <img src={productDetails.image}/>
           <h2>{productDetails.title}</h2>
           <p>Price: ${productDetails.price}</p>
@@ -111,7 +111,7 @@ useEffect(()=> {
           <br></br>
           <button onClick={() => navigate("/products")}>Back to Ducks</button>
         </div>  
-        <div className='reviews'>
+        <div>
           <h3>Reviews</h3>
           {reviews.length > 0 ? (
             <ul>
@@ -125,22 +125,14 @@ useEffect(()=> {
             <p>No reviews yet for this product</p>
           )}
         </div>
-        <div className='review-form'>
+        <div>
           <h3>Leave a Review</h3>
           <form onSubmit={handleSubmit}>
-            <div className='form-group'>
             <label>
-              Rating (1-5) : {""}
+              Rating(1-5) : {""}
+              <input type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} required/>
             </label>
-            <input type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} required/>
-            </div>
-            <div className='form-group'>
-            <label>
-              Comment:{""}
-            </label>
-            <textarea value={comment} onChange={(e) => setComment(e.target.value)} required/>
-            </div>
-            <button type="submit">Submit Review</button>
+            <br>
           </form>
         </div>
         </>
@@ -149,5 +141,5 @@ useEffect(()=> {
       )}
     </div>
     </div>
-  )
+  );
 }

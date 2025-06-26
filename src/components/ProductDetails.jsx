@@ -124,19 +124,21 @@ useEffect(()=> {
             <p>No reviews yet for this product</p>
           )}
         </div>
-        <div>
+        <div className='review-form'>
           <h3>Leave a Review</h3>
           <form onSubmit={handleSubmit}>
+            <div className='form-group'>
             <label>
-              Rating(1-5) : {""}
-              <input type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} required/>
+              Rating (1-5) : {""}
             </label>
-            <br></br>
+            <input type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} required/>
+            </div>
+            <div className='form-group'>
             <label>
               Comment:{""}
-              <textarea value={comment} onChange={(e) => setComment(e.target.value)} required/>
             </label>
-            <br></br>
+            <textarea value={comment} onChange={(e) => setComment(e.target.value)} required/>
+            </div>
             <button type="submit">Submit Review</button>
           </form>
         </div>

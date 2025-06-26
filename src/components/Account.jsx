@@ -34,7 +34,19 @@ const Account = ({token}) => {
       </div>
       <div className="orders">
         <h3>Your Orders</h3>
-        
+        {orders.length === 0 ? (
+          <p>No orders found.</p>
+        ) : (
+          <ul>
+            {orders.map((order) => (
+              <li key={order.id}>
+                <p><strong>Order ID: </strong>{order.id}</p>
+                <p><strong>Date: </strong>{order.date}</p>
+                <p><strong>Items: </strong>{order.note}</p>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <button onClick={handleLogout}>Log Out</button>
     </div>

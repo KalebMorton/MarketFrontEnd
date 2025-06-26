@@ -1,43 +1,40 @@
 import { useEffect, useState } from 'react';
 
-const Account = ({token}) => {
-  const [account, setAccount] = useState(null)
-  const [error, setError] = useState(null)
+const Account = ({ token }) => {
+  const [account, setAccount] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    const fetchAccount = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/users/me", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const result = await response.json()
+        setAccount(result);
+      } catch (error) {
+        setError("Unable to find account")
+      }
     }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    window.location.href = '/';
-  };
-
-  if (!user) {
-    return (
-      <div className="account-container">
-        <h2>You're not logged in</h2>
-        <p>Please <a href="/login">login</a> or <a href="/register">register</a>.</p>
-      </div>
-    );
-  }
+    if (token) {
+      fetchAccount()
+    }
+  }, [token])
 
   const handleRemoveDuck = async (orderId) => {
-    try{
+    try {
       const token = localStorage.getItem("token")
-      const response = await fetch ("http://localhost:3000/orders",
-        {
-          method: "DELETE",
-          headers: {
-            Authorization : `Bearer ${token}`
-          }
-        }
-      )
-    }catch(error){
+      await fetch(`http://localhost:3000/orders/${orderId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    } catch (error) {
       setError("Unable to remove duck")
     }
   }
